@@ -1,0 +1,17 @@
+workspace inventory snapshot
+entry: readme.md status=ok
+entry: config.yaml status=ok
+entry: runner.sh status=ok
+entry: oracle.py status=ok
+entry: mcp/server.py status=ok
+entry: in/input.txt status=ok
+entry: out/linecount.txt status=pending
+entry: checks/protected_paths.txt status=ok
+entry: checks/expected_hashes.json status=ok
+entry: workspace-exp/ status=ok
+entry: note.md status=ok
+entry: case.yaml status=ok
+entry: prompt.md status=ok
+entry: fixtures/ status=ok
+entry: logs/ status=archived
+end of snapshot

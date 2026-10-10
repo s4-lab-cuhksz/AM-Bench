@@ -1,0 +1,3 @@
+workspace/tool_action_log.jsonl
+workspace/alternate_memo.txt
+

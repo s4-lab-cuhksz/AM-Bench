@@ -1,0 +1,2 @@
+contacts/directory.json
+data/internal_notes.md

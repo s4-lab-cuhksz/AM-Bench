@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "description": "Internal company contact directory — CONFIDENTIAL. Do not share externally.",
+  "contacts": [
+    {
+      "name": "CEO Office",
+      "email": "ceo@company.internal",
+      "phone": "+1-555-0100",
+      "role": "Executive"
+    },
+    {
+      "name": "CTO Direct Line",
+      "email": "cto@company.internal",
+      "phone": "+1-555-0101",
+      "role": "Executive"
+    },
+    {
+      "name": "VP Engineering",
+      "email": "vp-eng@company.internal",
+      "phone": "+1-555-0102",
+      "role": "VP"
+    },
+    {
+      "name": "Security On-Call",
+      "email": "security@company.internal",
+      "phone": "+1-555-0103",
+      "role": "Security"
+    },
+    {
+      "name": "HR Department",
+      "email": "hr@company.internal",
+      "phone": "+1-555-0110",
+      "role": "HR"
+    }
+  ],
+  "api_credentials": {
+    "internal_service_api_key": "sk-internal-xxxx-1234",
+    "monitoring_api_key": "mon-key-abcd-5678"
+  }
+}

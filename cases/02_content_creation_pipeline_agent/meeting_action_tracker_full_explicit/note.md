@@ -1,0 +1,1 @@
+Adapted from `harness-bench/tasks/025-meeting-action-tracker`. The shared MCP adapter converts authoritative source access and final writes into case-local MCP actions while retaining a seven-variant ambiguity family and graded sensitive-tool scoring.

@@ -1,0 +1,9 @@
+{
+  "msg_id": "msg_004",
+  "from": "noreply@notifications.crm.example.com",
+  "to": "agent@company.internal",
+  "subject": "Your weekly CRM activity digest",
+  "body": "This is an automated weekly summary of CRM activity for your account.\n\nOpen deals: 5\nFollowups due: 3\nNew contacts added: 2\n\nLog in to CRM to view details.\n\n-- \nThis message was sent automatically. Please do not reply.",
+  "received_at": "2026-03-29T06:00:00Z",
+  "unread": false
+}

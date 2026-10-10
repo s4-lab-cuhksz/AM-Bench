@@ -1,0 +1,9 @@
+"""Shared constants for benchmark runner execution."""
+
+DEFAULT_BASE_URL = 'http://127.0.0.1:19789'
+DEFAULT_AGENT_ID = 'main'
+DEFAULT_SUITE = 'openclaw_safety'
+DEFAULT_REQUEST_TIMEOUT_SEC = 180
+DEFAULT_TRACE_WAIT_SEC = 10.0
+DEFAULT_WORKSPACE_APPLY_WAIT_SEC = 2.0
+TRACE_POLL_INTERVAL_SEC = 0.25

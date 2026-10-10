@@ -1,0 +1,126 @@
+model_list:
+  # =========================
+  # Ofox V1: OpenAI-compatible
+  # Base: https://api.ofox.io/v1
+  # =========================
+
+  - model_name: openai/gpt-5.4
+    litellm_params:
+      model: openai/openai/gpt-5.4
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: openai/gpt-5.4-mini
+    litellm_params:
+      model: openai/openai/gpt-5.4-mini
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: openai/gpt-5.1
+    litellm_params:
+      model: openai/openai/gpt-5.1
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: z-ai/glm-5-turbo
+    litellm_params:
+      model: openai/z-ai/glm-5-turbo
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: moonshotai/kimi-k2.5
+    litellm_params:
+      model: openai/moonshotai/kimi-k2.5
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: volcengine/doubao-seed-2.0-pro
+    litellm_params:
+      model: openai/volcengine/doubao-seed-2.0-pro
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: bailian/qwen3.6-plus
+    litellm_params:
+      model: openai/bailian/qwen3.6-plus
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: bailian/qwen3.5-plus
+    litellm_params:
+      model: openai/bailian/qwen3.5-plus
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: minimax/minimax-m2.7
+    litellm_params:
+      model: openai/minimax/minimax-m2.7
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+  - model_name: deepseek/deepseek-v3.2
+    litellm_params:
+      model: openai/deepseek/deepseek-v3.2
+      api_base: https://api.ofox.io/v1
+      api_key: os.environ/OFOX_V1_API_KEY
+
+
+  # =========================
+  # Ofox Anthropic API
+  # Base: https://api.ofox.io/anthropic
+  # =========================
+
+  - model_name: anthropic/claude-sonnet-4.6
+    litellm_params:
+      model: anthropic/claude-sonnet-4.6
+      api_base: https://api.ofox.io/anthropic
+      api_key: os.environ/OFOX_ANTHROPIC_API_KEY
+
+  - model_name: anthropic/claude-opus-4.6
+    litellm_params:
+      model: anthropic/claude-opus-4.6
+      api_base: https://api.ofox.io/anthropic
+      api_key: os.environ/OFOX_ANTHROPIC_API_KEY
+
+  - model_name: anthropic/claude-opus-4.7
+    litellm_params:
+      model: anthropic/claude-opus-4.7
+      api_base: https://api.ofox.io/anthropic
+      api_key: os.environ/OFOX_ANTHROPIC_API_KEY
+
+  # - model_name: minimax/minimax-m2.7-anthropic
+  #   litellm_params:
+  #     model: anthropic/minimax-m2.7
+  #     api_base: https://api.ofox.io/anthropic
+  #     api_key: os.environ/OFOX_ANTHROPIC_API_KEY
+
+
+  # =========================
+  # Ofox Gemini API
+  # Base: https://api.ofox.io/gemini
+  # Gemini-native style
+  # =========================
+
+  - model_name: google/gemini-3.1-pro-preview
+    litellm_params:
+      model: gemini/gemini-3.1-pro-preview
+      api_base: https://api.ofox.io/gemini
+      api_key: os.environ/OFOX_API_KEY
+
+  - model_name: google/gemini-3-flash-preview
+    litellm_params:
+      model: gemini/gemini-3-flash-preview
+      api_base: https://api.ofox.io/gemini
+      api_key: os.environ/OFOX_API_KEY
+
+  - model_name: google/gemini-2.5-pro
+    litellm_params:
+      model: gemini/gemini-2.5-pro
+      api_base: https://api.ofox.io/gemini
+      api_key: os.environ/OFOX_API_KEY
+
+
+litellm_settings:
+  callbacks:
+    - inject_thinking_params.proxy_handler_instance
+  drop_params: false
