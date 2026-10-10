@@ -52,8 +52,8 @@ AMBench 需要 Python 3.10 或更高版本。使用容器运行还需要安装�
 Docker。
 
 ```bash
-git clone https://github.com/Aegis-AgentGuard/agent-risk-benchmark.git
-cd agent-risk-benchmark
+git clone https://github.com/s4-lab-cuhksz/AM-Bench.git
+cd AM-Bench
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -268,10 +268,10 @@ src/ambench/
 ## 📮 联系我们
 
 - 技术问题、错误报告与功能建议，请通过
-  [GitHub Issues](https://github.com/Aegis-AgentGuard/agent-risk-benchmark/issues) 提交。
+  [GitHub Issues](https://github.com/s4-lab-cuhksz/AM-Bench/issues) 提交。
 - 如需贡献 benchmark 场景、架构改进、harness 集成或代码修改，请先阅读
   [贡献指南](CONTRIBUTING.md)，然后提交
-  [pull request](https://github.com/Aegis-AgentGuard/agent-risk-benchmark/pulls)。
+  [pull request](https://github.com/s4-lab-cuhksz/AM-Bench/pulls)。
 
 ## 🤝 参与贡献
 
