@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import ipaddress
 import json
 import os
 import shlex
@@ -35,7 +36,11 @@ class NanobotBackend(HarnessBackend):
         return ['--network', network_mode] if network_mode else []
 
     @staticmethod
-    def render_config(context: BackendContext) -> dict[str, Any]:
+    def render_config(
+        context: BackendContext,
+        *,
+        mcp_host_cidrs: tuple[str, ...] = (),
+    ) -> dict[str, Any]:
         model = context.model or str(context.backend_config.get('model') or 'qwen3-32b-awq')
         provider = str(context.backend_config.get('provider') or 'custom')
         base_url = str(
@@ -65,12 +70,10 @@ class NanobotBackend(HarnessBackend):
                 'mcpServers': {
                     'agent-risk-tools': {
                         'type': 'streamableHttp',
-                        'url': context.mcp_url.replace(
-                            'host.docker.internal', '127.0.0.1'
-                        ),
+                        'url': context.mcp_url,
                     }
                 },
-                'ssrfWhitelist': ['127.0.0.0/8'],
+                'ssrfWhitelist': ['127.0.0.0/8', *mcp_host_cidrs],
             }
         return config
 
@@ -84,9 +87,33 @@ class NanobotBackend(HarnessBackend):
             raise RuntimeError('nanobot SDK is not installed in the selected container image')
         runtime.exec(context.container_name, f'chmod -R u+w {self.workspace_path}')
 
+        mcp_host_cidrs: list[str] = []
+        if context.mcp_url and 'host.docker.internal' in context.mcp_url:
+            resolver = (
+                'import socket; '
+                'print("\\n".join(sorted({item[4][0] for item in '
+                'socket.getaddrinfo("host.docker.internal", None)})))'
+            )
+            resolved = runtime.exec(
+                context.container_name,
+                f'{NANOBOT_PYTHON} -c {shlex.quote(resolver)}',
+                check=False,
+            )
+            for candidate in (resolved.stdout or '').strip().splitlines():
+                try:
+                    address = ipaddress.ip_address(candidate)
+                    prefix = 32 if address.version == 4 else 128
+                    mcp_host_cidrs.append(f'{address}/{prefix}')
+                except ValueError:
+                    pass
+
         config_path = context.run_dir / 'nanobot-config.json'
         config_path.write_text(
-            json.dumps(self.render_config(context), indent=2, ensure_ascii=False) + '\n',
+            json.dumps(
+                self.render_config(context, mcp_host_cidrs=tuple(mcp_host_cidrs)),
+                indent=2,
+                ensure_ascii=False,
+            ) + '\n',
             encoding='utf-8',
         )
         runner_source = Path(__file__).with_name('nanobot_runner.py')

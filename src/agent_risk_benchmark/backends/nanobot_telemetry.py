@@ -42,9 +42,7 @@ class NanobotTelemetryBackend(NanobotBackend):
 
     @staticmethod
     def _container_mcp_url(context: BackendContext) -> str:
-        url = context.mcp_url or ''
-        network_mode = str(context.backend_config.get('network_mode', 'host')).strip()
-        return url.replace('host.docker.internal', '127.0.0.1') if network_mode == 'host' else url
+        return context.mcp_url or ''
 
     @staticmethod
     def render_config(

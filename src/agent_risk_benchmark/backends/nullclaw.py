@@ -86,7 +86,7 @@ class NullClawBackend(HarnessBackend):
                     'mcp_servers': {
                         'agent-risk-tools': {
                             'transport': 'http',
-                            'url': context.mcp_url.replace('host.docker.internal', '127.0.0.1'),
+                            'url': context.mcp_url,
                             'timeout_ms': context.timeout_sec * 1000,
                         }
                     }
