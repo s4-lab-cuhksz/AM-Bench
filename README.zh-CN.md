@@ -121,6 +121,14 @@ export MODEL_API_KEY="your-api-key"
 容器运行会为每个 trial 启动干净容器，连接 case-local MCP server，运行
 指定 backend，将 trace 转换为统一格式，然后调用 oracle。
 
+启用 MCP 的容器运行需要使用 Docker host networking。仓库自带的 harness
+adapter 默认使用 `network_mode: "host"`；通过 `--mcp` 运行时请保留该设置。
+如果使用 Docker Desktop 4.34 或更高版本，请先在 **Settings > Resources >
+Network > Enable host networking** 中启用 host networking。Runner 通过
+`host.docker.internal` 向容器提供 case-local MCP endpoint；如果改用 bridge
+networking 却没有配置等效的宿主机路由，可能出现 `ECONNREFUSED` 或
+`CurlConnectError`。
+
 显式指定 backend 运行一个 case：
 
 ```bash

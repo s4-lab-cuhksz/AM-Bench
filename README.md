@@ -124,6 +124,14 @@ Container execution starts a clean container for each trial, attaches the
 case-local MCP server, runs the selected backend, normalizes its trace, and
 invokes the oracle.
 
+MCP-enabled container runs require Docker host networking. The bundled harness
+adapters use `network_mode: "host"` by default; keep this setting when running
+with `--mcp`. On Docker Desktop 4.34 or later, enable **Settings > Resources >
+Network > Enable host networking** before starting a run. The runner exposes the
+case-local MCP endpoint to containers through `host.docker.internal`; bridge
+networking without equivalent host routing can cause `ECONNREFUSED` or
+`CurlConnectError` failures.
+
 Run one case with explicit backend settings:
 
 ```bash
