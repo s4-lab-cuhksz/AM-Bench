@@ -3,7 +3,7 @@
 # 🛡️ AMBench
 
 <p align="center">
-  <a href="https://aegis-agentguard.github.io/AMBenchLeaderBoard.github.io/"><strong>🏆 排行榜</strong></a>
+  <a href="https://s4-lab-cuhksz.github.io/AMBenchLeaderBoard.github.io/"><strong>🏆 排行榜</strong></a>
   ·
   <a href="README.md">English</a>
 </p>
