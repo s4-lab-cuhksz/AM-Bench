@@ -273,6 +273,22 @@ src/ambench/
     └── openclaw/               # OpenClaw gateway 配置与 trace 处理
 ```
 
+## 📚 引用
+
+如果您在研究中使用了 AM-Bench，请引用我们的论文：
+
+```bibtex
+@misc{huang2026ambenchunderstandingagentstask,
+  title={AM-Bench: Understanding Agents under Task Underspecification across Models and Harnesses},
+  author={Kaiyu Huang and Yiting Li and Angyang Gu and Pinjia He and Minchen Yu and Qingjiang Shi},
+  year={2026},
+  eprint={2610.18090},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2610.18090},
+}
+```
+
 ## 📮 联系我们
 
 - 技术问题、错误报告与功能建议，请通过
